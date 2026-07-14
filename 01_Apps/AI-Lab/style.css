@@ -1,0 +1,112 @@
+:root {
+  --bg-deep: #0f2a2e;
+  --bg-mid: #1a454c;
+  --accent: #3ecf8e;
+  --accent-hover: #2bb87a;
+  --text: #f2f7f5;
+  --text-soft: #b7d0c8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Outfit", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, #2a6b74 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 80%, #1f5c4a 0%, transparent 50%),
+    linear-gradient(160deg, var(--bg-deep), var(--bg-mid));
+  overflow: hidden;
+}
+
+.stage {
+  text-align: center;
+  padding: 2rem;
+  animation: rise-in 0.7s ease-out both;
+}
+
+.brand {
+  font-family: "ZCOOL KuaiLe", "Outfit", sans-serif;
+  font-size: clamp(3rem, 12vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: 0.6rem;
+  animation: brand-pop 0.9s ease-out both;
+}
+
+.welcome {
+  font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+  color: var(--text-soft);
+  margin-bottom: 2.2rem;
+  animation: rise-in 0.7s ease-out 0.15s both;
+}
+
+.count {
+  font-size: clamp(3.5rem, 14vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 1.6rem;
+  tabular-nums: true;
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.15s ease;
+}
+
+.count.bump {
+  transform: scale(1.12);
+}
+
+.click-btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--bg-deep);
+  background: var(--accent);
+  padding: 0.85rem 2.4rem;
+  border-radius: 10px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  animation: rise-in 0.7s ease-out 0.3s both;
+}
+
+.click-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.click-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brand-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
